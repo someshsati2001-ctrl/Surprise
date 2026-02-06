@@ -2,76 +2,102 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Happy Rose Day ❤️</title>
+
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100svh; /* iPhone-safe viewport */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  font-family: 'Arial', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   color: white;
   text-align: center;
 }
+
 .card {
-  background: rgba(255,255,255,0.15);
-  padding: 30px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 400px;
+  background: rgba(255,255,255,0.18);
+  padding: 24px 20px;
+  border-radius: 22px;
+  width: 100%;
+  max-width: 380px;
 }
+
 .rose {
-  font-size: 60px;
-  animation: float 2s infinite;
+  font-size: 64px;
+  margin-bottom: 10px;
+  animation: float 2s ease-in-out infinite;
 }
+
 @keyframes float {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
+
+h2 {
+  margin: 10px 0 15px;
+  font-size: 22px;
+}
+
 button {
-  margin-top: 20px;
-  padding: 12px 20px;
+  margin-top: 18px;
+  padding: 14px 22px;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   font-size: 16px;
   background: #ff2d55;
   color: white;
+  width: 100%;
+  cursor: pointer;
 }
+
 #msg {
   display: none;
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 </style>
 </head>
+
 <body>
 
 <div class="card">
   <div class="rose">🌹</div>
   <h2 id="text"></h2>
-  <button onclick="showMsg()">Happy Rose Day My Love ❤️</button>
+
+  <button onclick="showMsg()">
+    Happy Rose Day My Love ❤️
+  </button>
+
   <div id="msg">
-    Happy Rose Day, my love 🌹  
-    <br><br>
-    You are the most beautiful rose in my life, Doing this because saving money right now, but soon We'll be travelling to the world.  
+    Happy Rose Day, my love 🌹<br><br>
+    You are the most beautiful rose in my life, 
+    Doing this to save money right now, but soon We'll be travelling to the world. 🌍✈️<br><br>
     I choose you today, tomorrow, and always 💖
   </div>
 </div>
 
 <script>
-const message = "Happy Rose Day my Love💕";
+const message = "Happy Rose Day my Love 💕";
 let i = 0;
-const speed = 100;
+
 function typeWriter() {
   if (i < message.length) {
     document.getElementById("text").innerHTML += message.charAt(i);
     i++;
-    setTimeout(typeWriter, speed);
+    setTimeout(typeWriter, 90);
   }
 }
+
 typeWriter();
 
 function showMsg() {
